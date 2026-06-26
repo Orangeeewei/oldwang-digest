@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>假突破逃命戰情卡 · 6/26 老王解盤</title>
+<style>
+  /* =========================================================
+     假突破逃命戰情卡 — 沿用「解盤 / 總經戰情卡」夜間戰情室
+     台股慣例：紅漲綠跌；金色 = 老王招牌術語 / 訊號
+     來源：6/26（五）老王不只三分鐘逐字稿（假突破＋個股解盤）
+     ========================================================= */
+  :root{
+    --ink:#14110E; --surface:#1E1A15; --surface-2:#26211B;
+    --line:#332C24; --line-soft:#2A241E;
+    --up:#FF5247; --up-dim:#5A2420;
+    --down:#37C28C; --down-dim:#1E4338;
+    --info:#6FA8FF;
+    --gold:#E0A93C; --gold-dim:#4A3A1C;
+    --txt:#F3EEE4; --muted:#9C9082; --faint:#6B6155;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --cjk:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:
+      radial-gradient(1200px 600px at 78% -8%, #1f2218 0%, transparent 60%),
+      radial-gradient(900px 500px at 4% 4%, #1a1712 0%, transparent 55%),
+      var(--ink);
+    color:var(--txt); font-family:var(--cjk); line-height:1.5;
+    padding:clamp(18px,4vw,52px) clamp(14px,4vw,40px) 64px; min-height:100vh;
+  }
+  .wrap{max-width:1240px;margin:0 auto}
+
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--gold);font-weight:600}
+  .masthead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+    gap:18px;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:8px}
+  h1{font-size:clamp(30px,5.4vw,52px);font-weight:800;letter-spacing:-.01em;
+    line-height:1.02;margin-top:10px}
+  h1 .thin{font-weight:300;color:var(--muted)}
+  .sub{color:var(--muted);font-size:14.5px;max-width:54ch;margin-top:10px}
+  .sub b{color:var(--txt);font-weight:600}
+  .sub .dn{color:var(--down);font-weight:600}
+  .stamp{text-align:right;font-family:var(--mono);font-size:12.5px;color:var(--muted);
+    line-height:1.7;white-space:nowrap}
+  .stamp .big{color:var(--down);font-size:15px;font-weight:600;letter-spacing:.04em}
+
+  .metrics{display:grid;gap:12px;margin:22px 0 6px;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+  .metric{border:1px solid var(--line);border-radius:13px;padding:14px 16px;
+    background:linear-gradient(180deg,var(--surface) 0%, #18140f 100%)}
+  .metric .lab{font-size:12px;color:var(--muted);letter-spacing:.04em}
+  .metric .val{font-family:var(--mono);font-size:24px;font-weight:700;margin-top:6px;line-height:1}
+  .metric .val.d{color:var(--down)} .metric .val.g{color:var(--gold)} .metric .val.i{color:var(--info)}
+  .metric .hint{font-size:11px;color:var(--faint);margin-top:5px;letter-spacing:.03em}
+
+  .acts{margin:24px 0 8px;padding:18px 20px;border:1px solid var(--down-dim);border-radius:14px;
+    background:linear-gradient(90deg,rgba(55,194,140,.07),transparent 80%)}
+  .acts h2{font-size:12px;letter-spacing:.22em;color:var(--gold);font-weight:700;
+    text-transform:uppercase;margin-bottom:14px;font-family:var(--mono)}
+  .acts .row{display:grid;gap:12px;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch}
+  .act{border:1px solid var(--line);border-radius:11px;padding:13px 14px;background:var(--surface-2)}
+  .act .d{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--faint)}
+  .act .t{font-size:16px;font-weight:800;margin:5px 0 4px}
+  .act .t.u{color:var(--up)} .act .t.warn{color:var(--gold)} .act .t.dn{color:var(--down)}
+  .act p{font-size:12px;color:var(--muted);line-height:1.55}
+  .acts .arr{align-self:center;color:var(--gold);font-family:var(--mono);font-size:20px;font-weight:700}
+  @media (max-width:820px){
+    .acts .row{grid-template-columns:1fr}.acts .arr{transform:rotate(90deg);justify-self:center}
+  }
+
+  .grid{display:grid;gap:18px;margin-top:26px;
+    grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+  .card{background:linear-gradient(180deg,var(--surface) 0%, #1A150F 100%);
+    border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    display:flex;flex-direction:column;opacity:0;transform:translateY(14px);
+    transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease}
+  .card.in{opacity:1;transform:none}
+  .card:hover{transform:translateY(-4px);border-color:var(--gold-dim);
+    box-shadow:0 18px 40px -22px rgba(0,0,0,.8)}
+
+  .c-head{padding:18px 18px 10px}
+  .fig{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gold);
+    border:1px solid var(--gold-dim);border-radius:5px;padding:2px 8px;background:rgba(224,169,60,.06)}
+  .m-title{font-size:21px;font-weight:800;letter-spacing:.01em;margin:11px 0 4px;line-height:1.18}
+  .src{font-size:11.5px;color:var(--faint);letter-spacing:.03em}
+
+  .mini{padding:4px 16px 0}
+  .mini svg{display:block;width:100%;height:96px;overflow:visible}
+  .mini-cap{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:10.5px;color:var(--faint);
+    padding:6px 2px 0;letter-spacing:.03em}
+  .mini-cap .k{display:inline-flex;align-items:center;gap:5px}
+  .mini-cap .dot{width:9px;height:3px;border-radius:2px;display:inline-block}
+
+  .levels{padding:14px 18px 4px;display:grid;gap:9px}
+  .lv{display:grid;grid-template-columns:48px 1fr;gap:10px;align-items:baseline}
+  .lv dt{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--faint);
+    border-right:1px solid var(--line);padding-right:8px;text-align:right}
+  .lv dd{font-size:13.5px;color:var(--txt)}
+  .lv dd .hl{color:var(--up);font-weight:600}
+  .lv dd .stop{color:var(--down);font-weight:600}
+  .lv dd .gd{color:var(--gold);font-weight:600}
+
+  .takeaway{margin:12px 18px 0;padding:11px 13px;border-radius:11px;background:var(--surface-2);
+    border:1px solid var(--line-soft)}
+  .takeaway .tag{font-size:14.5px;font-weight:800;letter-spacing:.02em}
+  .takeaway .tag.bull{color:var(--up)} .takeaway .tag.bear{color:var(--down)} .takeaway .tag.warn{color:var(--gold)}
+  .takeaway .note{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.55}
+
+  .idiom{margin:14px 18px 18px;padding:12px 14px;border-left:3px solid var(--gold);
+    background:linear-gradient(90deg,rgba(224,169,60,.10),transparent 90%);border-radius:0 10px 10px 0}
+  .idiom .q{font-size:14px;color:var(--gold);font-weight:600}
+  .idiom .q::before{content:"「"} .idiom .q::after{content:"」"}
+
+  .foot{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);
+    display:grid;gap:18px;grid-template-columns:1.4fr 1fr}
+  .foot h3{font-size:12px;letter-spacing:.2em;color:var(--gold);font-family:var(--mono);
+    text-transform:uppercase;margin-bottom:10px}
+  .foot p{font-size:13px;color:var(--muted);max-width:64ch}
+  .foot code{font-family:var(--mono);font-size:12px;color:var(--txt);
+    background:var(--surface-2);padding:1px 6px;border-radius:4px;border:1px solid var(--line)}
+  .disclaimer{font-size:12px;color:var(--faint);line-height:1.7}
+  .disclaimer b{color:var(--muted)}
+
+  @media (max-width:720px){.foot{grid-template-columns:1fr}.stamp{text-align:left}}
+  @media (prefers-reduced-motion:reduce){.card{opacity:1;transform:none;transition:none}.card:hover{transform:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div>
+      <span class="eyebrow">06/26（五） · 假突破逃命解盤</span>
+      <h1>假突破逃命戰情卡<span class="thin"> · 個股全面拆解</span></h1>
+      <p class="sub">週一長紅突破前高、老王積極做多（小編喊 7 萬）；週三長黑跳空瞬間變<b>假突破</b>、午報急降倉至五成；週五<span class="dn">破底創新低、老王鞠躬道歉</span>。三巫日結算大量低點是本週關鍵警示，下週等「<b>聽三條、補中洞</b>」才能止跌。</p>
+    </div>
+    <div class="stamp">
+      <div class="big">假突破 → 真破底</div>
+      <div>突破前高勝率 今年 75%</div>
+      <div>持股水位 降回五成</div>
+      <div>下週課題 聽三條・補中洞</div>
+    </div>
+  </header>
+
+  <section class="metrics">
+    <div class="metric"><div class="lab">本週大盤</div><div class="val d">漲千點 → 破底</div><div class="hint">週一漲、週五跌，急上又急下</div></div>
+    <div class="metric"><div class="lab">突破前高勝率（今年）</div><div class="val g">75%</div><div class="hint">4 次成功 3 次 · 大賺小賠</div></div>
+    <div class="metric"><div class="lab">老王要求持股水位</div><div class="val i">降回五成</div><div class="hint">週三 12:05 午報 · 太弱留強</div></div>
+    <div class="metric"><div class="lab">下週觀察重點</div><div class="val g">聽三條・補中洞</div><div class="hint">站回三短均 · 封閉空方缺口</div></div>
+  </section>
+
+  <section class="acts">
+    <h2>本週三幕 · 從突破到破底</h2>
+    <div class="row">
+      <div class="act">
+        <div class="d">週一 · 06/22</div>
+        <div class="t u">長紅突破前高</div>
+        <p>一根長紅站上前高壓力，型態成功突破，老王超樂觀積極做多、拉高持股至八成，小編更直接喊 7 萬。</p>
+      </div>
+      <div class="arr">→</div>
+      <div class="act">
+        <div class="d">週三 · 06/24</div>
+        <div class="t warn">長黑跳空・假突破</div>
+        <p>長黑跳空留<b style="color:var(--gold)">空方缺口</b>，同時跌破 5 日均線與前高頸線＝假突破確立。老王 12:05 午報緊急要會員太弱留強、降回五成。</p>
+      </div>
+      <div class="arr">→</div>
+      <div class="act">
+        <div class="d">週五 · 06/26</div>
+        <div class="t dn">破底創新低</div>
+        <p>封不掉缺口、站不回前高頸線，今天一路殺破底創新低。假突破就來真破底，老王鞠躬向全國觀眾道歉。</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="grid">
+
+    <!-- 大盤假突破型態 -->
+    <article class="card">
+      <div class="c-head">
+        <span class="fig">台股大盤</span>
+        <div class="m-title">成功突破 → 假突破 → 破底</div>
+        <span class="src">週一突破前高 · 週三假突破確立 · 週五破底創新低</span>
+      </div>
+      <dl class="levels">
+        <div class="lv"><dt>突破</dt><dd>週一長紅站上前高壓力，型態成功，本來是<span class="hl">海闊天空萬里無雲</span></dd></div>
+        <div class="lv"><dt>假突破</dt><dd>週三長黑跳空出現<span class="stop">空方缺口</span>，同時跌破 5 日線＋前高頸線</dd></div>
+        <div class="lv"><dt>今日</dt><dd>封不掉缺口、站不回頸線，一路殺破底創新低</dd></div>
+        <div class="lv"><dt>翻多</dt><dd>重新站上 <span class="gd">5 / 10 / 20 日三條短均</span>，並封閉空方缺口</dd></div>
+      </dl>
+      <div class="takeaway">
+        <div class="tag bear">假突破 → 真破底</div>
+        <div class="note">不成功變成「仁」——突破過不去，回檔修正都非常兇猛。大盤與櫃買市場同步出現假突破，要一起小心。</div>
+      </div>
+      <div class="idiom"><span class="q">假突破，就來真破底</span></div>
+    </article>
+
+    <!-- 三巫日結算 -->
+    <article class="card">
+      <div class="c-head">
+        <span class="fig">關鍵概念</span>
+        <div class="m-title">三巫日結算爆大量低點</div>
+        <span class="src">每季期貨與選擇權同步結算 · 新一季建倉成本觀察線</span>
+      </div>
+      <dl class="levels">
+        <div class="lv"><dt>定義</dt><dd>每季三巫日，期貨選擇權全部結算，當天爆出<span class="gd">超級大量</span></dd></div>
+        <div class="lv"><dt>用法</dt><dd>當天爆大量低點＝新一季多方<span class="hl">建倉成本的觀察線</span></dd></div>
+        <div class="lv"><dt>跌破</dt><dd><span class="stop">凶多吉少</span>，空方勝、新一季做多的人都在賠錢</dd></div>
+        <div class="lv"><dt>站回</dt><dd>多方翻賺、趨勢反轉，才算真正轉強</dd></div>
+      </dl>
+      <div class="takeaway">
+        <div class="tag warn">過去種種，今日重算</div>
+        <div class="note">過去種種譬如昨日死，今日種種譬如今日生——新一季從結算日重新計算成本，這根爆大量 K 棒的低點就是本季的生死線。</div>
+      </div>
+      <div class="idiom"><span class="q">複雜的東西簡單做，簡單的東西重複做</span></div>
+    </article>
+
+    <!-- 美股壓力 -->
+    <article class="card">
+      <div class="c-head">
+        <span class="fig">美股</span>
+        <div class="m-title">納斯達克連跌四天・費半缺口未封</div>
+        <span class="src">兩大外部壓力 · 台股下殺的根源之一</span>
+      </div>
+      <dl class="levels">
+        <div class="lv"><dt>納斯達克</dt><dd>早就跌破三巫日結算爆大量低點，<span class="stop">連跌四天</span>，目前守在季均線</dd></div>
+        <div class="lv"><dt>翻多條件</dt><dd>要站回爆大量低點＋三條短均；季均線＋前低再破＝<span class="stop">四面楚歌</span></dd></div>
+        <div class="lv"><dt>費半</dt><dd>守在月均線，但上方掛著一個<span class="stop">空方缺口（突破缺口）</span>未封閉</dd></div>
+        <div class="lv"><dt>費半風險</dt><dd>突破缺口不封＝趨勢扭轉持續，月均線隨時可能再跌破</dd></div>
+      </dl>
+      <div class="takeaway">
+        <div class="tag bear">空方掌握主動</div>
+        <div class="note">跌勢看壓不看撐——美股不站回爆大量低點，壓力就一直壓著台股。費半守月線≠轉強，缺口封閉才算。</div>
+      </div>
+      <div class="idiom"><span class="q">跌破爆大量低點，就凶多吉少</span></div>
+    </article>
+
+    <!-- 下週課題 -->
+    <article class="card">
+      <div class="c-head">
+        <span class="fig">下週觀察</span>
+        <div class="m-title">聽三條・補中洞</div>
+        <span class="src">大盤與櫃買市場的共同課題</span>
+      </div>
+      <dl class="levels">
+        <div class="lv"><dt>聽三條</dt><dd>重新站上 <span class="hl">5 / 10 / 20 日三條短均線</span>，短線才能止跌</dd></div>
+        <div class="lv"><dt>補中洞</dt><dd>把週三留下的<span class="gd">空方缺口</span>封閉（聽中洞），才是真止跌</dd></div>
+        <div class="lv"><dt>否則</dt><dd>沒有這兩個訊號，<span class="stop">空方趨勢就持續</span>，不宜輕易加倉</dd></div>
+        <div class="lv"><dt>櫃買</dt><dd>一樣聽三條，單調只能等重新站回三短均才止跌</dd></div>
+      </dl>
+      <div class="takeaway">
+        <div class="tag warn">三聲無奈待解除</div>
+        <div class="note">像打麻將一樣單調地等一張牌——大盤現在就是聽三條，兩件事（站三短均＋補缺口）都沒看到，就繼續等著。</div>
+      </div>
+      <div class="idiom"><span class="q">會不會打麻將？大盤就是聽中洞</span></div>
+    </article>
+
+    <!-- 老王道歉・勝率75% -->
+    <article class="card">
+      <div class="c-head">
+        <span class="fig">態度・方法</span>
+        <div class="m-title">禮拜一衝・禮拜三道歉</div>
+        <span class="src">週三 12:05 午報即時調整 · 今年突破前高型態 4 次統計</span>
+      </div>
+      <dl class="levels">
+        <div class="lv"><dt>週一</dt><dd>積極做多、拉高持股至八成，小編喊 7 萬</dd></div>
+        <div class="lv"><dt>週三</dt><dd>午報確認假突破，<span class="stop">降回五成、太弱留強</span>，真摯道歉</dd></div>
+        <div class="lv"><dt>今年勝率</dt><dd>4 次突破前高：<span class="hl">1 月 +7000 / 4 月 +5000 / 5 月 +3000</span>，本次約 <span class="stop">−2000</span>，勝率 <span class="gd">75%</span></dd></div>
+        <div class="lv"><dt>心法</dt><dd>看錯不硬拗、快停損；看對要積極、敢抱住，才能<span class="gd">大賺小賠</span></dd></div>
+      </dl>
+      <div class="takeaway">
+        <div class="tag warn">股市重應變，不重預測</div>
+        <div class="note">沒有方法 100% 準，勝率 75% 就是好工具。看錯時一鞠躬、快調整才是真負責——賣在創新高是事後論，假突破發生之前你也不知道。</div>
+      </div>
+      <div class="idiom"><span class="q">看錯不要硬拗，趕快停損出場</span></div>
+    </article>
+
+    <!-- 記憶體股 -->
+    <article class="card">
+      <div class="c-head">
+        <span class="fig">個股・記憶體</span>
+        <div class="m-title">華邦電・南亞科 · 守十日均線</div>
+        <span class="src">兩檔共同看十日均線 + 爆大量低點雙重支撐</span>
+      </div>
+      <dl class="levels">
+        <div class="lv"><dt>華邦電</dt><dd>美光財報前老王已建議獲利減碼一半；剩一半看<span class="hl">十日均線</span>防守</dd></div>
+        <div class="lv"><dt>南亞科</dt><dd>跌破短期均線，最關鍵是<span class="hl">十日均線</span>；跌破代表這波漲勢暫時結束</dd></div>
+        <div class="lv"><dt>操作原則</dt><dd><span class="gd">五日線轉弱先減半</span>，留一半看十日線＋爆大量低點雙重考驗</dd></div>
+      </dl>
+      <div class="takeaway">
+        <div class="tag warn">十日均線是最後防線</div>
+        <div class="note">短線強弱看五日線，波段漲勢是否結束看十日線——跌破十日線就代表這一波的大漲暫時告一段落，不是繼續硬撐的理由。</div>
+      </div>
+      <div class="idiom"><span class="q">跌破十日均線，這波漲勢就暫時告一段落</span></div>
+    </article>
+
+    <!-- 面板雙貓 -->
+    <article class="card">
+      <div class="c-head">
+        <span class="fig">個股・面板</span>
+        <div class="m-title">群創・友達 · 外資是唯一關鍵</div>
+        <span class="src">兩檔均跌破五日均線 · 下週十日均線＋爆大量低點雙重考驗</span>
+      </div>
+      <dl class="levels">
+        <div class="lv"><dt>短線</dt><dd>群創、友達均跌破五日均線，<span class="stop">短線轉弱</span>，可先減碼一半</dd></div>
+        <div class="lv"><dt>下週關鍵</dt><dd><span class="hl">十日均線</span>快速上揚，將與爆大量低點重疊形成<span class="gd">雙重支撐</span></dd></div>
+        <div class="lv"><dt>群創大量</dt><dd>近期單日最大量 <span class="hl">100 萬張</span>以上，低點不能跌破</dd></div>
+        <div class="lv"><dt>外資</dt><dd>外資買＝漲，外資賣＝跌，面板族群就看這一個指標</dd></div>
+      </dl>
+      <div class="takeaway">
+        <div class="tag warn">面板看外資，沒有第二個指標</div>
+        <div class="note">外資進來就有救，外資不進來就算技術面守住也很有限。十日線＋大量低點同時跌破，才是這波漲勢真正結束的訊號。</div>
+      </div>
+      <div class="idiom"><span class="q">要買就買最強的，同族群裡面選最強</span></div>
+    </article>
+
+    <!-- 聯電 -->
+    <article class="card">
+      <div class="c-head">
+        <span class="fig">個股・半導體</span>
+        <div class="m-title">聯電 · 卡在爆大量低點</div>
+        <span class="src">跌破五日均線 · 185.5 元歷史天價爆大量低點護城河</span>
+      </div>
+      <dl class="levels">
+        <div class="lv"><dt>現況</dt><dd>今日跌破五日均線（短線轉弱），但暫時卡在<span class="gd">爆大量低點</span>支撐</dd></div>
+        <div class="lv"><dt>爆大量</dt><dd>185.5 元歷史天價當天爆出最大量，低點形成強力支撐</dd></div>
+        <div class="lv"><dt>下週</dt><dd>十日均線快速上揚，將與爆大量低點重疊＝<span class="hl">雙重支撐最後防衛</span></dd></div>
+        <div class="lv"><dt>操作</dt><dd>五日線跌破先減一半，剩一半等十日線＋大量低點雙重考驗結果</dd></div>
+      </dl>
+      <div class="takeaway">
+        <div class="tag warn">雙重支撐守住才能放心留</div>
+        <div class="note">十日均線＋爆大量低點若通通跌破，代表這波大漲結束要回檔休息了；守住任何一個或全守住，這波行情就還沒結束。</div>
+      </div>
+      <div class="idiom"><span class="q">看對要敢抱，看錯要敢砍</span></div>
+    </article>
+
+    <!-- ABF三雄 -->
+    <article class="card">
+      <div class="c-head">
+        <span class="fig">個股・ABF・籌碼</span>
+        <div class="m-title">ABF 三雄 · 景碩最強 投信是關鍵</div>
+        <span class="src">景碩領先創高 · 南電突破次之 · 新興落後 · 投信買賣超為核心指標</span>
+      </div>
+      <dl class="levels">
+        <div class="lv"><dt>強弱排名</dt><dd><span class="hl">景碩</span>（最先突破前高）＞ <span class="hl">南電</span>（昨日突破）＞ <span class="stop">新興</span>（還沒到前高）</dd></div>
+        <div class="lv"><dt>景碩</dt><dd>漲停開高走低收長上影線，三條短均線仍守住，<span class="gd">投信持續買</span>＝多方趨勢不破</dd></div>
+        <div class="lv"><dt>南電</dt><dd>昨突破前高、今跳空漲停收上影線，缺口還在、前高頸線未破＝仍是<span class="hl">成功突破</span></dd></div>
+        <div class="lv"><dt>新興</dt><dd>爆出近期最大量 6.2 萬張，<span class="gd">爆大量低點</span>卡在三條短均線附近，下週最關鍵支撐</dd></div>
+      </dl>
+      <div class="takeaway">
+        <div class="tag bull">投信買就漲，轉賣才要擔心</div>
+        <div class="note">ABF 三雄看投信，這個規律高度連動。不要因為落後補漲就去追新興，同族群裡面要買就買最強的景碩。</div>
+      </div>
+      <div class="idiom"><span class="q">投信連續買，股價就一路往上；投信轉賣，就要開始小心了</span></div>
+    </article>
+
+  </main>
+
+  <footer class="foot">
+    <div>
+      <h3>怎麼跟個股卡一起看</h3>
+      <p>這張是「大盤層級假突破」與「個股十日均線＋爆大量低點雙重考驗」的整合解析。大方向（空方掌握主動、三短均未站回）先確立，再回頭看個股強弱——記憶體、面板、聯電、ABF 三雄各有不同觀察指標，請對照本卡個股區塊。下週若大盤出現「聽三條、補中洞」兩個止跌訊號，再考慮把持股拉回七至八成去撿便宜。</p>
+    </div>
+    <div>
+      <h3>風險聲明 · 防詐提醒</h3>
+      <p class="disclaimer"><b>這是節目觀點的整理，不是投資建議。</b>內容為老王 6/26（五）盤後解盤的技術判斷，點數（+7000／−2000 等）為節目以指數估算之約略值，個股均線位置會隨每日收盤更新，請以你自己的看盤工具確認實際數字。市場瞬息萬變，實際進出請以你自己的資料與判斷為準，並自負盈虧。<br>老王官方帳號一定有藍勾勾，老王與同事<b>不會打電話、不會私訊</b>聯絡你，主動聯絡的一律是詐騙。</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+  const cards=document.querySelectorAll(".card");
+  if(window.IntersectionObserver){
+    const io=new IntersectionObserver((es)=>{
+      es.forEach((e)=>{ if(e.isIntersecting){
+        setTimeout(()=>e.target.classList.add("in"), (Array.from(cards).indexOf(e.target)%3)*70);
+        io.unobserve(e.target);
+      }});
+    },{threshold:.12});
+    cards.forEach(c=>io.observe(c));
+  }else{ cards.forEach(c=>c.classList.add("in")); }
+</script>
+</body>
+</html>
