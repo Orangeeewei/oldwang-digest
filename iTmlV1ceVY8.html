@@ -1,0 +1,343 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>別怕！七月反彈？2026/06/29【老王不只三分鐘】 · 戰情卡</title><style>
+  /* =========================================================
+     大盤假突破戰情卡 — 沿用「解盤 / 總經戰情卡」夜間戰情室
+     台股慣例：紅漲綠跌；金色 = 老王招牌術語 / 訊號
+     來源：6/26（五）台股殺千點當集逐字稿（三巫日結算 + 假突破）
+     ========================================================= */
+  :root{
+    --ink:#14110E; --surface:#1E1A15; --surface-2:#26211B;
+    --line:#332C24; --line-soft:#2A241E;
+    --up:#FF5247; --up-dim:#5A2420;
+    --down:#37C28C; --down-dim:#1E4338;
+    --info:#6FA8FF;
+    --gold:#E0A93C; --gold-dim:#4A3A1C;
+    --txt:#F3EEE4; --muted:#9C9082; --faint:#6B6155;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --cjk:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:
+      radial-gradient(1200px 600px at 78% -8%, #1f2218 0%, transparent 60%),
+      radial-gradient(900px 500px at 4% 4%, #1a1712 0%, transparent 55%),
+      var(--ink);
+    color:var(--txt); font-family:var(--cjk); line-height:1.5;
+    padding:clamp(18px,4vw,52px) clamp(14px,4vw,40px) 64px; min-height:100vh;
+  }
+  .wrap{max-width:1240px;margin:0 auto}
+
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--gold);font-weight:600}
+  .masthead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+    gap:18px;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:8px}
+  h1{font-size:clamp(30px,5.4vw,52px);font-weight:800;letter-spacing:-.01em;
+    line-height:1.02;margin-top:10px}
+  h1 .thin{font-weight:300;color:var(--muted)}
+  .sub{color:var(--muted);font-size:14.5px;max-width:54ch;margin-top:10px}
+  .sub b{color:var(--txt);font-weight:600}
+  .sub .dn{color:var(--down);font-weight:600}
+  .stamp{text-align:right;font-family:var(--mono);font-size:12.5px;color:var(--muted);
+    line-height:1.7;white-space:nowrap}
+  .stamp .big{color:var(--down);font-size:15px;font-weight:600;letter-spacing:.04em}
+
+  .metrics{display:grid;gap:12px;margin:22px 0 6px;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+  .metric{border:1px solid var(--line);border-radius:13px;padding:14px 16px;
+    background:linear-gradient(180deg,var(--surface) 0%, #18140f 100%)}
+  .metric .lab{font-size:12px;color:var(--muted);letter-spacing:.04em}
+  .metric .val{font-family:var(--mono);font-size:24px;font-weight:700;margin-top:6px;line-height:1}
+  .metric .val.d{color:var(--down)} .metric .val.g{color:var(--gold)} .metric .val.i{color:var(--info)}
+  .metric .hint{font-size:11px;color:var(--faint);margin-top:5px;letter-spacing:.03em}
+
+  /* timeline hero — 三幕 */
+  .acts{margin:24px 0 8px;padding:18px 20px;border:1px solid var(--down-dim);border-radius:14px;
+    background:linear-gradient(90deg,rgba(55,194,140,.07),transparent 80%)}
+  .acts h2{font-size:12px;letter-spacing:.22em;color:var(--gold);font-weight:700;
+    text-transform:uppercase;margin-bottom:14px;font-family:var(--mono)}
+  .acts .row{display:grid;gap:12px;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch}
+  .act{border:1px solid var(--line);border-radius:11px;padding:13px 14px;background:var(--surface-2)}
+  .act .d{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--faint)}
+  .act .t{font-size:16px;font-weight:800;margin:5px 0 4px}
+  .act .t.u{color:var(--up)} .act .t.warn{color:var(--gold)} .act .t.dn{color:var(--down)}
+  .act p{font-size:12px;color:var(--muted);line-height:1.55}
+  .acts .arr{align-self:center;color:var(--gold);font-family:var(--mono);font-size:20px;font-weight:700}
+  @media (max-width:820px){
+    .acts .row{grid-template-columns:1fr}.acts .arr{transform:rotate(90deg);justify-self:center}
+  }
+
+  .grid{display:grid;gap:18px;margin-top:26px;
+    grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+  .card{background:linear-gradient(180deg,var(--surface) 0%, #1A150F 100%);
+    border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    display:flex;flex-direction:column;opacity:0;transform:translateY(14px);
+    transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease}
+  .card.in{opacity:1;transform:none}
+  .card:hover{transform:translateY(-4px);border-color:var(--gold-dim);
+    box-shadow:0 18px 40px -22px rgba(0,0,0,.8)}
+
+  .c-head{padding:18px 18px 10px}
+  .fig{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gold);
+    border:1px solid var(--gold-dim);border-radius:5px;padding:2px 8px;background:rgba(224,169,60,.06)}
+  .m-title{font-size:21px;font-weight:800;letter-spacing:.01em;margin:11px 0 4px;line-height:1.18}
+  .src{font-size:11.5px;color:var(--faint);letter-spacing:.03em}
+
+  .mini{padding:4px 16px 0}
+  .mini svg{display:block;width:100%;height:96px;overflow:visible}
+  .mini-cap{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:10.5px;color:var(--faint);
+    padding:6px 2px 0;letter-spacing:.03em}
+  .mini-cap .k{display:inline-flex;align-items:center;gap:5px}
+  .mini-cap .dot{width:9px;height:3px;border-radius:2px;display:inline-block}
+
+  .levels{padding:14px 18px 4px;display:grid;gap:9px}
+  .lv{display:grid;grid-template-columns:48px 1fr;gap:10px;align-items:baseline}
+  .lv dt{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--faint);
+    border-right:1px solid var(--line);padding-right:8px;text-align:right}
+  .lv dd{font-size:13.5px;color:var(--txt)}
+  .lv dd .hl{color:var(--up);font-weight:600}
+  .lv dd .stop{color:var(--down);font-weight:600}
+  .lv dd .gd{color:var(--gold);font-weight:600}
+
+  .takeaway{margin:12px 18px 0;padding:11px 13px;border-radius:11px;background:var(--surface-2);
+    border:1px solid var(--line-soft)}
+  .takeaway .tag{font-size:14.5px;font-weight:800;letter-spacing:.02em}
+  .takeaway .tag.bull{color:var(--up)} .takeaway .tag.bear{color:var(--down)} .takeaway .tag.warn{color:var(--gold)}
+  .takeaway .note{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.55}
+
+  .idiom{margin:14px 18px 18px;padding:12px 14px;border-left:3px solid var(--gold);
+    background:linear-gradient(90deg,rgba(224,169,60,.10),transparent 90%);border-radius:0 10px 10px 0}
+  .idiom .q{font-size:14px;color:var(--gold);font-weight:600}
+  .idiom .q::before{content:"「"} .idiom .q::after{content:"」"}
+
+  .foot{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);
+    display:grid;gap:18px;grid-template-columns:1.4fr 1fr}
+  .foot h3{font-size:12px;letter-spacing:.2em;color:var(--gold);font-family:var(--mono);
+    text-transform:uppercase;margin-bottom:10px}
+  .foot p{font-size:13px;color:var(--muted);max-width:64ch}
+  .foot code{font-family:var(--mono);font-size:12px;color:var(--txt);
+    background:var(--surface-2);padding:1px 6px;border-radius:4px;border:1px solid var(--line)}
+  .disclaimer{font-size:12px;color:var(--faint);line-height:1.7}
+  .disclaimer b{color:var(--muted)}
+
+  @media (max-width:720px){.foot{grid-template-columns:1fr}.stamp{text-align:left}}
+  @media (prefers-reduced-motion:reduce){.card{opacity:1;transform:none;transition:none}.card:hover{transform:none}}
+</style></head><body><div class="wrap"><header class="masthead">
+  <div>
+    <span class="eyebrow">2026.06.29 · 總體經濟</span>
+    <h1>別怕！<span class="thin"> · 七月反彈？</span></h1>
+    <p class="sub">六月下旬照例跌、避險基金史上單週最大科技股賣超——但歷史大數據告訴你：七月往往是美股全年最強月，Nasdaq 100 估值合理、EPS 爆發 +43%、AI 周期未見頂，沒有悲觀的理由，先等技術面翻多再說。</p>
+  </div>
+  <div class="stamp">
+    <div class="big">七月見曙光</div>
+    <div>等技術面翻多確認</div>
+  </div>
+</header>
+
+<section class="metrics">
+  <div class="metric">
+    <div class="lab">S&amp;P500 本益比</div>
+    <div class="val d">20×</div>
+    <div class="hint">高於20年中位數，已出25-75分位帶，屬偏高</div>
+  </div>
+  <div class="metric">
+    <div class="lab">Nasdaq 100 本益比</div>
+    <div class="val">24×</div>
+    <div class="hint">仍在25-75分位帶內，歷史角度尚屬合理</div>
+  </div>
+  <div class="metric">
+    <div class="lab">Nasdaq 100 EPS成長（2026）</div>
+    <div class="val g">+43%</div>
+    <div class="hint">去年僅 +21%，今年近乎翻倍爆發</div>
+  </div>
+  <div class="metric">
+    <div class="lab">避險基金科技股淨賣超</div>
+    <div class="val d">史上單週最高</div>
+    <div class="hint">6/25當週，超越2024年Q4前次紀錄</div>
+  </div>
+  <div class="metric">
+    <div class="lab">7月 S&amp;P500 歷史平均</div>
+    <div class="val g">全年最佳月</div>
+    <div class="hint">過去20年單月報酬冠軍，優於11月</div>
+  </div>
+</section>
+
+<section class="acts">
+  <h2>本週三幕</h2>
+  <div class="row">
+    <div class="act">
+      <div class="d">六月下旬</div>
+      <div class="t u">慣性賣壓集中</div>
+      <p>歷史大數據顯示6月中旬至下旬美股慣性走弱；避險基金同步創下史上單週最大科技股淨賣超，道瓊因賣壓集中科技股而相對抗跌。</p>
+    </div>
+    <div class="arr">→</div>
+    <div class="act">
+      <div class="d">六月底</div>
+      <div class="t u">轉折窗口開啟</div>
+      <p>1950–2025年平均走勢顯示六月底是反彈起點；技術面是否翻多成為關鍵確認訊號，總體面邏輯已提供底氣。</p>
+    </div>
+    <div class="arr">→</div>
+    <div class="act">
+      <div class="d">七月</div>
+      <div class="t u">歷史最強月份</div>
+      <p>過去20年S&amp;P500七月平均月報酬稱冠全年；Nasdaq 100 EPS +43%提供基本面支撐，靜待短線與長線趨勢重新走在一起。</p>
+    </div>
+  </div>
+</section>
+
+<main class="grid">
+  <article class="card">
+    <div class="c-head">
+      <span class="fig">美股季節</span>
+      <div class="m-title">六月跌、七月彈的75年歷史慣性</div>
+      <span class="src">S&amp;P500 1950–2025 大數據統計</span>
+    </div>
+    <dl class="levels">
+      <div class="lv"><dt>六月中旬→下旬</dt><dd>歷史慣性<span class="stop">走弱回檔</span>，今年表現符合預期</dd></div>
+      <div class="lv"><dt>六月底→七月交接</dt><dd>歷史平均<span class="hl">向上反彈</span>，75年數據支撐</dd></div>
+      <div class="lv"><dt>七月全月</dt><dd>過去20年<span class="hl">月報酬全年最佳</span>，平均優於11月</dd></div>
+      <div class="lv"><dt>8–9月</dt><dd>歷史<span class="stop">負報酬機率最高</span>，9月不論10年、20年或長期均為負，屆時才需警戒</dd></div>
+    </dl>
+    <div class="takeaway">
+      <div class="tag bull">短線偏多</div>
+      <div class="note">大數據支持七月反彈，但這是「平均」概念，仍需技術面翻多訊號確認才行動。</div>
+    </div>
+    <div class="idiom"><span class="q">歷史大數據告訴我們，殺到6月下旬，美股是有反彈機會的。</span></div>
+  </article>
+
+  <article class="card">
+    <div class="c-head">
+      <span class="fig">籌碼</span>
+      <div class="m-title">避險基金史上單週最大科技股賣超</div>
+      <span class="src">市場籌碼統計，週結 6/25</span>
+    </div>
+    <dl class="levels">
+      <div class="lv"><dt>賣超規模</dt><dd>單週科技股淨流出<span class="stop">創有史以來最高</span>，超越2024年Q4紀錄</dd></div>
+      <div class="lv"><dt>賣壓結構</dt><dd>主要集中科技股，道瓊因不含這些個股而<span class="hl">相對抗跌</span></dd></div>
+      <div class="lv"><dt>2024年Q4前例</dt><dd>當時同樣創史上大賣超，但<span class="hl">2025年美股照漲</span>，並未引發崩盤</dd></div>
+      <div class="lv"><dt>真正警戒條件</dt><dd>需<span class="stop">連續多週持續賣超</span>才代表全面看空；單週是短線調節，不必過度解讀</dd></div>
+    </dl>
+    <div class="takeaway">
+      <div class="tag warn">觀察中</div>
+      <div class="note">一次賣超是情緒波動，連續賣超才是系統性風險訊號，目前不到恐慌程度。</div>
+    </div>
+    <div class="idiom"><span class="q">如果是連續性的撤退，那才帶來顯著意義；一週大賣超，當短期現象解讀就好。</span></div>
+  </article>
+
+  <article class="card">
+    <div class="c-head">
+      <span class="fig">估值</span>
+      <div class="m-title">S&amp;P500 本益比：偏高但未到極端</div>
+      <span class="src">S&amp;P500，20年歷史分位對照</span>
+    </div>
+    <dl class="levels">
+      <div class="lv"><dt>目前本益比</dt><dd>約 <span class="stop">20倍</span>，高於20年中位數</dd></div>
+      <div class="lv"><dt>歷史分位</dt><dd>已<span class="stop">突破75分位帶上緣</span>（落在25–75%區間外），屬高估</dd></div>
+      <div class="lv"><dt>極端高估門檻</dt><dd>需到達95分位才算超級高估，<span class="hl">目前尚未到達</span></dd></div>
+      <div class="lv"><dt>結構說明</dt><dd>500檔含傳產類股，拉高整體PE；純科技指數相對更合理</dd></div>
+    </dl>
+    <div class="takeaway">
+      <div class="tag warn">偏貴但非極端</div>
+      <div class="note">S&P500估值偏高需留意，但「高估」≠「超級高估」，不是立即賣出的訊號。</div>
+    </div>
+    <div class="idiom"><span class="q">高估並沒有到超級高估，這兩個是不一樣的概念。</span></div>
+  </article>
+
+  <article class="card">
+    <div class="c-head">
+      <span class="fig">估值</span>
+      <div class="m-title">Nasdaq 100 本益比：24倍仍屬歷史合理</div>
+      <span class="src">Nasdaq 100，20年歷史分位對照</span>
+    </div>
+    <figure class="kchart-fig" style="margin:8px 0 2px;padding:8px 4px 4px;background:#15110c;border:1px solid #332C24;border-radius:10px"><svg viewBox="0 0 660 300" preserveAspectRatio="xMidYMid meet" style="display:block;width:100%;height:auto" font-family="ui-monospace,Menlo,Consolas,monospace"><line x1="48" y1="190.0" x2="650" y2="190.0" stroke="#332C24" stroke-width="1"/><text x="43" y="193.0" fill="#9C9082" font-size="10" text-anchor="end">21,628</text><line x1="48" y1="146.0" x2="650" y2="146.0" stroke="#332C24" stroke-width="1"/><text x="43" y="149.0" fill="#9C9082" font-size="10" text-anchor="end">23,097</text><line x1="48" y1="102.0" x2="650" y2="102.0" stroke="#332C24" stroke-width="1"/><text x="43" y="105.0" fill="#9C9082" font-size="10" text-anchor="end">24,567</text><line x1="48" y1="58.0" x2="650" y2="58.0" stroke="#332C24" stroke-width="1"/><text x="43" y="61.0" fill="#9C9082" font-size="10" text-anchor="end">26,036</text><line x1="48" y1="14.0" x2="650" y2="14.0" stroke="#332C24" stroke-width="1"/><text x="43" y="17.0" fill="#9C9082" font-size="10" text-anchor="end">27,505</text><polyline points="53.5,164.6 64.4,157.5 75.4,147.8 86.3,139.5 97.3,131.9 108.2,122.5 119.1,115.2 130.1,111.5 141.0,107.6 152.0,105.6 162.9,103.4 173.9,100.5 184.8,98.1 195.8,98.0 206.7,95.3 217.7,93.6 228.6,92.5 239.5,88.6 250.5,81.6 261.4,76.1 272.4,69.3 283.3,62.1 294.3,57.5 305.2,54.2 316.2,49.2 327.1,49.3 338.1,50.4 349.0,51.7 359.9,52.5 370.9,54.6 381.8,53.9 392.8,50.5 403.7,45.7 414.7,41.8 425.6,37.7 436.6,33.3 447.5,30.6 458.5,29.6 469.4,30.1 480.3,37.7 491.3,44.6 502.2,53.1 513.2,63.2 524.1,69.3 535.1,68.2 546.0,63.7 557.0,59.5 567.9,54.4 578.9,50.2 589.8,48.5 600.7,55.1 611.7,60.5 622.6,64.4 633.6,71.7 644.5,74.6" fill="none" stroke="#E0A93C" stroke-width="1.4" opacity="0.95"/><polyline points="53.5,180.6 64.4,173.9 75.4,165.4 86.3,158.1 97.3,151.3 108.2,143.6 119.1,136.4 130.1,129.6 141.0,123.6 152.0,118.7 162.9,113.0 173.9,107.9 184.8,104.8 195.8,102.8 206.7,100.5 217.7,98.5 228.6,96.5 239.5,93.3 250.5,89.8 261.4,85.7 272.4,81.5 283.3,77.3 294.3,73.1 305.2,67.9 316.2,62.7 327.1,59.3 338.1,56.3 349.0,54.6 359.9,53.4 370.9,51.9 381.8,51.6 392.8,50.5 403.7,48.7 414.7,47.2 425.6,46.1 436.6,43.6 447.5,40.6 458.5,37.6 469.4,35.9 480.3,37.7 491.3,38.9 502.2,41.9 513.2,46.4 524.1,49.7 535.1,52.9 546.0,54.1 557.0,56.3 567.9,58.8 578.9,59.7 589.8,58.3 600.7,59.4 611.7,60.0 622.6,59.4 633.6,60.9 644.5,61.6" fill="none" stroke="#6FA8FF" stroke-width="1.4" opacity="0.95"/><polyline points="53.5,179.9 64.4,178.3 75.4,176.4 86.3,174.1 97.3,171.1 108.2,167.6 119.1,163.5 130.1,160.0 141.0,155.7 152.0,151.9 162.9,146.8 173.9,140.9 184.8,135.1 195.8,130.5 206.7,125.9 217.7,121.0 228.6,116.4 239.5,111.5 250.5,106.7 261.4,102.2 272.4,97.2 283.3,92.6 294.3,88.9 305.2,85.4 316.2,81.6 327.1,78.9 338.1,76.4 349.0,74.0 359.9,71.6 370.9,68.8 381.8,66.5 392.8,63.9 403.7,60.9 414.7,57.5 425.6,54.4 436.6,51.5 447.5,48.4 458.5,46.1 469.4,44.6 480.3,44.8 491.3,45.3 502.2,46.2 513.2,47.5 524.1,48.4 535.1,49.5 546.0,48.9 557.0,48.4 567.9,48.2 578.9,47.8 589.8,48.0 600.7,49.2 611.7,50.9 622.6,52.9 633.6,55.3 644.5,57.2" fill="none" stroke="#C792EA" stroke-width="1.4" opacity="0.95"/><polyline points="53.5,158.9 64.4,159.0 75.4,159.0 86.3,158.7 97.3,158.2 108.2,157.6 119.1,157.1 130.1,156.7 141.0,156.2 152.0,155.9 162.9,155.4 173.9,154.8 184.8,154.2 195.8,153.6 206.7,152.8 217.7,151.7 228.6,150.4 239.5,149.3 250.5,148.0 261.4,146.6 272.4,145.1 283.3,143.2 294.3,141.5 305.2,139.6 316.2,137.6 327.1,135.8 338.1,134.2 349.0,132.6 359.9,130.9 370.9,129.4 381.8,127.6 392.8,125.6 403.7,123.7 414.7,121.5 425.6,119.4 436.6,117.2 447.5,114.9 458.5,112.8 469.4,110.8 480.3,109.3 491.3,107.5 502.2,105.7 513.2,104.3 524.1,102.6 535.1,100.7 546.0,98.5 557.0,96.1 567.9,94.1 578.9,91.7 589.8,89.6 600.7,87.5 611.7,85.2 622.6,82.9 633.6,81.1 644.5,79.2" fill="none" stroke="#9C9082" stroke-width="1.4" opacity="0.95"/><line x1="53.5" y1="148.6" x2="53.5" y2="153.6" stroke="#37C28C" stroke-width="1"/><rect x="50.1" y="151.5" width="6.8" height="1.2" fill="#37C28C"/><rect x="50.1" y="247.5" width="6.8" height="30.5" fill="#37C28C" opacity="0.8"/><line x1="64.4" y1="143.3" x2="64.4" y2="155.0" stroke="#FF5247" stroke-width="1"/><rect x="61.0" y="143.4" width="6.8" height="10.0" fill="#FF5247"/><rect x="61.0" y="250.3" width="6.8" height="27.7" fill="#FF5247" opacity="0.8"/><line x1="75.4" y1="129.8" x2="75.4" y2="139.0" stroke="#FF5247" stroke-width="1"/><rect x="72.0" y="129.8" width="6.8" height="9.2" fill="#FF5247"/><rect x="72.0" y="246.1" width="6.8" height="31.9" fill="#FF5247" opacity="0.8"/><line x1="86.3" y1="118.2" x2="86.3" y2="128.8" stroke="#FF5247" stroke-width="1"/><rect x="82.9" y="118.5" width="6.8" height="9.8" fill="#FF5247"/><rect x="82.9" y="242.3" width="6.8" height="35.7" fill="#FF5247" opacity="0.8"/><line x1="97.3" y1="114.3" x2="97.3" y2="122.1" stroke="#FF5247" stroke-width="1"/><rect x="93.9" y="115.9" width="6.8" height="1.2" fill="#FF5247"/><rect x="93.9" y="243.1" width="6.8" height="34.9" fill="#FF5247" opacity="0.8"/><line x1="108.2" y1="103.4" x2="108.2" y2="110.4" stroke="#FF5247" stroke-width="1"/><rect x="104.8" y="104.9" width="6.8" height="3.9" fill="#FF5247"/><rect x="104.8" y="242.4" width="6.8" height="35.6" fill="#FF5247" opacity="0.8"/><line x1="119.1" y1="105.9" x2="119.1" y2="112.3" stroke="#37C28C" stroke-width="1"/><rect x="115.8" y="106.5" width="6.8" height="1.2" fill="#37C28C"/><rect x="115.8" y="248.7" width="6.8" height="29.3" fill="#37C28C" opacity="0.8"/><line x1="130.1" y1="102.9" x2="130.1" y2="113.0" stroke="#37C28C" stroke-width="1"/><rect x="126.7" y="105.0" width="6.8" height="6.2" fill="#37C28C"/><rect x="126.7" y="245.4" width="6.8" height="32.6" fill="#37C28C" opacity="0.8"/><line x1="141.0" y1="99.2" x2="141.0" y2="106.3" stroke="#FF5247" stroke-width="1"/><rect x="137.6" y="99.3" width="6.8" height="5.8" fill="#FF5247"/><rect x="137.6" y="249.7" width="6.8" height="28.3" fill="#FF5247" opacity="0.8"/><line x1="152.0" y1="99.1" x2="152.0" y2="112.7" stroke="#37C28C" stroke-width="1"/><rect x="148.6" y="102.4" width="6.8" height="3.5" fill="#37C28C"/><rect x="148.6" y="250.2" width="6.8" height="27.8" fill="#37C28C" opacity="0.8"/><line x1="162.9" y1="93.4" x2="162.9" y2="103.3" stroke="#FF5247" stroke-width="1"/><rect x="159.5" y="93.9" width="6.8" height="6.6" fill="#FF5247"/><rect x="159.5" y="242.3" width="6.8" height="35.7" fill="#FF5247" opacity="0.8"/><line x1="173.9" y1="92.0" x2="173.9" y2="98.2" stroke="#FF5247" stroke-width="1"/><rect x="170.5" y="92.4" width="6.8" height="2.6" fill="#FF5247"/><rect x="170.5" y="249.6" width="6.8" height="28.4" fill="#FF5247" opacity="0.8"/><line x1="184.8" y1="97.3" x2="184.8" y2="103.3" stroke="#FF5247" stroke-width="1"/><rect x="181.4" y="99.1" width="6.8" height="1.6" fill="#FF5247"/><rect x="181.4" y="252.0" width="6.8" height="26.0" fill="#FF5247" opacity="0.8"/><line x1="195.8" y1="97.3" x2="195.8" y2="103.0" stroke="#FF5247" stroke-width="1"/><rect x="192.4" y="98.8" width="6.8" height="2.0" fill="#FF5247"/><rect x="192.4" y="249.5" width="6.8" height="28.5" fill="#FF5247" opacity="0.8"/><line x1="206.7" y1="90.9" x2="206.7" y2="104.2" stroke="#FF5247" stroke-width="1"/><rect x="203.3" y="92.2" width="6.8" height="1.2" fill="#FF5247"/><rect x="203.3" y="249.5" width="6.8" height="28.5" fill="#FF5247" opacity="0.8"/><line x1="217.7" y1="82.3" x2="217.7" y2="90.0" stroke="#FF5247" stroke-width="1"/><rect x="214.3" y="85.6" width="6.8" height="4.1" fill="#FF5247"/><rect x="214.3" y="251.6" width="6.8" height="26.4" fill="#FF5247" opacity="0.8"/><line x1="228.6" y1="82.7" x2="228.6" y2="91.6" stroke="#37C28C" stroke-width="1"/><rect x="225.2" y="85.7" width="6.8" height="1.3" fill="#37C28C"/><rect x="225.2" y="250.5" width="6.8" height="27.5" fill="#37C28C" opacity="0.8"/><line x1="239.5" y1="78.2" x2="239.5" y2="82.5" stroke="#FF5247" stroke-width="1"/><rect x="236.2" y="79.3" width="6.8" height="2.0" fill="#FF5247"/><rect x="236.2" y="249.7" width="6.8" height="28.3" fill="#FF5247" opacity="0.8"/><line x1="250.5" y1="63.6" x2="250.5" y2="75.1" stroke="#FF5247" stroke-width="1"/><rect x="247.1" y="63.9" width="6.8" height="10.3" fill="#FF5247"/><rect x="247.1" y="247.0" width="6.8" height="31.0" fill="#FF5247" opacity="0.8"/><line x1="261.4" y1="58.0" x2="261.4" y2="67.6" stroke="#37C28C" stroke-width="1"/><rect x="258.0" y="62.6" width="6.8" height="2.2" fill="#37C28C"/><rect x="258.0" y="246.1" width="6.8" height="31.9" fill="#37C28C" opacity="0.8"/><line x1="272.4" y1="51.6" x2="272.4" y2="60.7" stroke="#FF5247" stroke-width="1"/><rect x="269.0" y="51.7" width="6.8" height="8.7" fill="#FF5247"/><rect x="269.0" y="244.5" width="6.8" height="33.5" fill="#FF5247" opacity="0.8"/><line x1="283.3" y1="48.3" x2="283.3" y2="55.2" stroke="#FF5247" stroke-width="1"/><rect x="279.9" y="50.9" width="6.8" height="4.1" fill="#FF5247"/><rect x="279.9" y="236.0" width="6.8" height="42.0" fill="#FF5247" opacity="0.8"/><line x1="294.3" y1="53.4" x2="294.3" y2="66.9" stroke="#FF5247" stroke-width="1"/><rect x="290.9" y="56.4" width="6.8" height="1.2" fill="#FF5247"/><rect x="290.9" y="244.3" width="6.8" height="33.7" fill="#FF5247" opacity="0.8"/><line x1="305.2" y1="44.9" x2="305.2" y2="59.4" stroke="#FF5247" stroke-width="1"/><rect x="301.8" y="47.0" width="6.8" height="7.6" fill="#FF5247"/><rect x="301.8" y="243.9" width="6.8" height="34.1" fill="#FF5247" opacity="0.8"/><line x1="316.2" y1="37.9" x2="316.2" y2="46.4" stroke="#FF5247" stroke-width="1"/><rect x="312.8" y="40.0" width="6.8" height="6.3" fill="#FF5247"/><rect x="312.8" y="243.5" width="6.8" height="34.5" fill="#FF5247" opacity="0.8"/><line x1="327.1" y1="45.3" x2="327.1" y2="56.2" stroke="#37C28C" stroke-width="1"/><rect x="323.7" y="50.4" width="6.8" height="1.9" fill="#37C28C"/><rect x="323.7" y="244.5" width="6.8" height="33.5" fill="#37C28C" opacity="0.8"/><line x1="338.1" y1="49.8" x2="338.1" y2="63.0" stroke="#37C28C" stroke-width="1"/><rect x="334.7" y="50.4" width="6.8" height="6.0" fill="#37C28C"/><rect x="334.7" y="241.9" width="6.8" height="36.1" fill="#37C28C" opacity="0.8"/><line x1="349.0" y1="57.6" x2="349.0" y2="68.0" stroke="#37C28C" stroke-width="1"/><rect x="345.6" y="61.4" width="6.8" height="1.6" fill="#37C28C"/><rect x="345.6" y="243.4" width="6.8" height="34.6" fill="#37C28C" opacity="0.8"/><line x1="359.9" y1="50.9" x2="359.9" y2="61.2" stroke="#FF5247" stroke-width="1"/><rect x="356.6" y="51.0" width="6.8" height="8.4" fill="#FF5247"/><rect x="356.6" y="245.6" width="6.8" height="32.4" fill="#FF5247" opacity="0.8"/><line x1="370.9" y1="47.0" x2="370.9" y2="57.9" stroke="#FF5247" stroke-width="1"/><rect x="367.5" y="50.3" width="6.8" height="4.5" fill="#FF5247"/><rect x="367.5" y="247.8" width="6.8" height="30.2" fill="#FF5247" opacity="0.8"/><line x1="381.8" y1="44.0" x2="381.8" y2="49.8" stroke="#37C28C" stroke-width="1"/><rect x="378.4" y="47.6" width="6.8" height="1.2" fill="#37C28C"/><rect x="378.4" y="245.6" width="6.8" height="32.4" fill="#37C28C" opacity="0.8"/><line x1="392.8" y1="37.4" x2="392.8" y2="43.5" stroke="#FF5247" stroke-width="1"/><rect x="389.4" y="39.4" width="6.8" height="2.0" fill="#FF5247"/><rect x="389.4" y="244.0" width="6.8" height="34.0" fill="#FF5247" opacity="0.8"/><line x1="403.7" y1="37.7" x2="403.7" y2="43.0" stroke="#37C28C" stroke-width="1"/><rect x="400.3" y="38.2" width="6.8" height="1.2" fill="#37C28C"/><rect x="400.3" y="245.7" width="6.8" height="32.3" fill="#37C28C" opacity="0.8"/><line x1="414.7" y1="31.1" x2="414.7" y2="41.4" stroke="#FF5247" stroke-width="1"/><rect x="411.3" y="31.6" width="6.8" height="6.9" fill="#FF5247"/><rect x="411.3" y="245.7" width="6.8" height="32.3" fill="#FF5247" opacity="0.8"/><line x1="425.6" y1="26.3" x2="425.6" y2="33.3" stroke="#FF5247" stroke-width="1"/><rect x="422.2" y="29.9" width="6.8" height="1.2" fill="#FF5247"/><rect x="422.2" y="236.3" width="6.8" height="41.7" fill="#FF5247" opacity="0.8"/><line x1="436.6" y1="23.4" x2="436.6" y2="31.7" stroke="#FF5247" stroke-width="1"/><rect x="433.2" y="26.5" width="6.8" height="4.0" fill="#FF5247"/><rect x="433.2" y="242.3" width="6.8" height="35.7" fill="#FF5247" opacity="0.8"/><line x1="447.5" y1="24.0" x2="447.5" y2="31.1" stroke="#FF5247" stroke-width="1"/><rect x="444.1" y="26.3" width="6.8" height="1.9" fill="#FF5247"/><rect x="444.1" y="244.1" width="6.8" height="33.9" fill="#FF5247" opacity="0.8"/><line x1="458.5" y1="25.2" x2="458.5" y2="36.0" stroke="#37C28C" stroke-width="1"/><rect x="455.1" y="26.3" width="6.8" height="7.2" fill="#37C28C"/><rect x="455.1" y="245.6" width="6.8" height="32.4" fill="#37C28C" opacity="0.8"/><line x1="469.4" y1="31.4" x2="469.4" y2="42.5" stroke="#FF5247" stroke-width="1"/><rect x="466.0" y="34.2" width="6.8" height="7.5" fill="#FF5247"/><rect x="466.0" y="246.5" width="6.8" height="31.5" fill="#FF5247" opacity="0.8"/><line x1="480.3" y1="41.9" x2="480.3" y2="69.6" stroke="#37C28C" stroke-width="1"/><rect x="477.0" y="43.0" width="6.8" height="24.8" fill="#37C28C"/><rect x="477.0" y="237.6" width="6.8" height="40.4" fill="#37C28C" opacity="0.8"/><line x1="491.3" y1="53.7" x2="491.3" y2="62.9" stroke="#37C28C" stroke-width="1"/><rect x="487.9" y="57.1" width="6.8" height="4.1" fill="#37C28C"/><rect x="487.9" y="242.7" width="6.8" height="35.3" fill="#37C28C" opacity="0.8"/><line x1="502.2" y1="51.3" x2="502.2" y2="89.6" stroke="#37C28C" stroke-width="1"/><rect x="498.8" y="55.8" width="6.8" height="12.9" fill="#37C28C"/><rect x="498.8" y="235.6" width="6.8" height="42.4" fill="#37C28C" opacity="0.8"/><line x1="513.2" y1="67.3" x2="513.2" y2="84.7" stroke="#37C28C" stroke-width="1"/><rect x="509.8" y="73.7" width="6.8" height="10.3" fill="#37C28C"/><rect x="509.8" y="244.7" width="6.8" height="33.3" fill="#37C28C" opacity="0.8"/><line x1="524.1" y1="63.7" x2="524.1" y2="85.7" stroke="#FF5247" stroke-width="1"/><rect x="520.7" y="64.8" width="6.8" height="15.0" fill="#FF5247"/><rect x="520.7" y="242.6" width="6.8" height="35.4" fill="#FF5247" opacity="0.8"/><line x1="535.1" y1="58.8" x2="535.1" y2="71.1" stroke="#FF5247" stroke-width="1"/><rect x="531.7" y="62.4" width="6.8" height="3.2" fill="#FF5247"/><rect x="531.7" y="241.8" width="6.8" height="36.2" fill="#FF5247" opacity="0.8"/><line x1="546.0" y1="38.5" x2="546.0" y2="45.9" stroke="#FF5247" stroke-width="1"/><rect x="542.6" y="38.6" width="6.8" height="7.1" fill="#FF5247"/><rect x="542.6" y="240.9" width="6.8" height="37.1" fill="#FF5247" opacity="0.8"/><line x1="557.0" y1="35.5" x2="557.0" y2="48.0" stroke="#37C28C" stroke-width="1"/><rect x="553.6" y="39.6" width="6.8" height="8.2" fill="#37C28C"/><rect x="553.6" y="239.0" width="6.8" height="39.0" fill="#37C28C" opacity="0.8"/><line x1="567.9" y1="43.8" x2="567.9" y2="60.3" stroke="#37C28C" stroke-width="1"/><rect x="564.5" y="44.3" width="6.8" height="14.1" fill="#37C28C"/><rect x="564.5" y="237.9" width="6.8" height="40.1" fill="#37C28C" opacity="0.8"/><line x1="578.9" y1="42.3" x2="578.9" y2="53.4" stroke="#FF5247" stroke-width="1"/><rect x="575.5" y="43.6" width="6.8" height="3.2" fill="#FF5247"/><rect x="575.5" y="214.0" width="6.8" height="64.0" fill="#E0A93C" opacity="0.8"/><line x1="589.8" y1="42.3" x2="589.8" y2="55.3" stroke="#37C28C" stroke-width="1"/><rect x="586.4" y="44.6" width="6.8" height="9.5" fill="#37C28C"/><rect x="586.4" y="233.0" width="6.8" height="45.0" fill="#37C28C" opacity="0.8"/><line x1="600.7" y1="62.6" x2="600.7" y2="73.6" stroke="#FF5247" stroke-width="1"/><rect x="597.4" y="71.4" width="6.8" height="1.2" fill="#FF5247"/><rect x="597.4" y="226.8" width="6.8" height="51.2" fill="#FF5247" opacity="0.8"/><line x1="611.7" y1="63.8" x2="611.7" y2="78.4" stroke="#37C28C" stroke-width="1"/><rect x="608.3" y="71.7" width="6.8" height="3.1" fill="#37C28C"/><rect x="608.3" y="225.7" width="6.8" height="52.3" fill="#37C28C" opacity="0.8"/><line x1="622.6" y1="67.3" x2="622.6" y2="85.3" stroke="#37C28C" stroke-width="1"/><rect x="619.2" y="67.3" width="6.8" height="11.0" fill="#37C28C"/><rect x="619.2" y="243.5" width="6.8" height="34.5" fill="#37C28C" opacity="0.8"/><line x1="633.6" y1="74.3" x2="633.6" y2="88.6" stroke="#FF5247" stroke-width="1"/><rect x="630.2" y="80.1" width="6.8" height="5.8" fill="#FF5247"/><rect x="630.2" y="219.9" width="6.8" height="58.1" fill="#FF5247" opacity="0.8"/><line x1="644.5" y1="68.3" x2="644.5" y2="74.7" stroke="#FF5247" stroke-width="1"/><rect x="641.1" y="68.7" width="6.8" height="5.3" fill="#FF5247"/><rect x="641.1" y="271.4" width="6.8" height="6.6" fill="#FF5247" opacity="0.8"/><line x1="48" y1="68.7" x2="650" y2="68.7" stroke="#FF5247" stroke-width="0.8" stroke-dasharray="2 3" opacity="0.8"/><text x="650" y="65.7" fill="#FF5247" font-size="10.5" text-anchor="end" font-weight="700">25,679</text><text x="48" y="210" fill="#9C9082" font-size="9.5">成交量(金=爆量)</text></svg><figcaption style="display:flex;flex-wrap:wrap;gap:4px 12px;font-size:10.5px;color:#9C9082;padding:6px 2px 0;font-family:ui-monospace,monospace"><span style="color:#FF5247">▮紅漲</span><span style="color:#37C28C">▮綠跌</span><span style="color:#E0A93C">━ 5日</span> <span style="color:#6FA8FF">━ 10日</span> <span style="color:#C792EA">━ 20日</span> <span style="color:#9C9082">━ 60日</span><span>· 資料 Yahoo Finance</span></figcaption></figure>
+    <dl class="levels">
+      <div class="lv"><dt>目前本益比</dt><dd><span class="hl">24倍</span>，絕對值高於S&amp;P500的20倍</dd></div>
+      <div class="lv"><dt>歷史分位</dt><dd>仍<span class="hl">落在25–75分位帶內</span>，接近75分位附近</dd></div>
+      <div class="lv"><dt>與S&amp;P500比較</dt><dd>絕對PE雖更高，但相對歷史分位<span class="hl">反而更合理</span></dd></div>
+      <div class="lv"><dt>結論</dt><dd>純科技股估值<span class="hl">尚未高估</span>，不構成看空的估值理由</dd></div>
+    </dl>
+    <div class="takeaway">
+      <div class="tag bull">估值合理</div>
+      <div class="note">Nasdaq 100的24倍PE看似貴，對照20年歷史卻在正常區間；數字高≠貴，要看分位。</div>
+    </div>
+    <div class="idiom"><span class="q">納斯達克的本益比並沒有出現高估的情況，是還算合理的。</span></div>
+  </article>
+
+  <article class="card">
+    <div class="c-head">
+      <span class="fig">獲利</span>
+      <div class="m-title">Nasdaq 100 EPS：2026年爆發成長 +43%</div>
+      <span class="src">Nasdaq 100 市場共識EPS預估</span>
+    </div>
+    <dl class="levels">
+      <div class="lv"><dt>2025年EPS成長</dt><dd>+21%，已屬強勁</dd></div>
+      <div class="lv"><dt>2026年EPS成長</dt><dd><span class="hl">+43%</span>，幾乎翻倍，創近年最高爆發</dd></div>
+      <div class="lv"><dt>2027年EPS成長</dt><dd>預估 +24%，基期墊高後成長趨緩</dd></div>
+      <div class="lv"><dt>操作時間表</dt><dd>今年到Q3反映<span class="hl">2026強勁獲利</span>；<span class="stop">Q4後</span>才開始反映2027放緩，屆時再調整態度</dd></div>
+    </dl>
+    <div class="takeaway">
+      <div class="tag bull">基本面挺</div>
+      <div class="note">今年+43%的EPS成長是科技股強勢的底氣，至少支撐到Q3，Q4後才需重新評估。</div>
+    </div>
+    <div class="idiom"><span class="q">目前到第三季，都還有機會在反應今年這些科技股相當強勁的EPS年成長。</span></div>
+  </article>
+
+  <article class="card">
+    <div class="c-head">
+      <span class="fig">AI周期</span>
+      <div class="m-title">AI浪潮尚未見頂，高度超越歷次工業革命</div>
+      <span class="src">Financial Times AI周期分析</span>
+    </div>
+    <dl class="levels">
+      <div class="lv"><dt>頂點定義</dt><dd>需出現「<span class="stop">建高後明顯往下走</span>」才算見頂；目前仍在持續上升</dd></div>
+      <div class="lv"><dt>對比歷史革命</dt><dd>此波AI繁榮高度已<span class="hl">超越鐵路、運河、網路泡沫</span>等歷次周期的頂點</dd></div>
+      <div class="lv"><dt>常見誤區</dt><dd>用「大康泡沫（網路泡沫）」類比AI是<span class="stop">錯誤框架</span>，規模與持續性本質不同</dd></div>
+      <div class="lv"><dt>EPS連結</dt><dd>AI周期持續上行就持續推升科技股獲利，提供<span class="hl">基本面支撐</span></dd></div>
+    </dl>
+    <div class="takeaway">
+      <div class="tag bull">趨勢未變</div>
+      <div class="note">AI周期沒有轉折訊號，科技股就沒有中線轉空的基本面理由；見頂前不需悲觀。</div>
+    </div>
+    <div class="idiom"><span class="q">你還沒看到頂點。頂點是建高之後往下走；現在AI還在持續往上走。</span></div>
+  </article>
+
+  <article class="card">
+    <div class="c-head">
+      <span class="fig">操作心法</span>
+      <div class="m-title">長線多頭邏輯清晰，短線等技術面翻多</div>
+      <span class="src">老王操作心法綜合</span>
+    </div>
+    <dl class="levels">
+      <div class="lv"><dt>長線多頭三支柱</dt><dd>估值合理＋EPS爆發＋AI未見頂 → <span class="hl">沒有悲觀理由</span></dd></div>
+      <div class="lv"><dt>短線操作原則</dt><dd>大數據是機率，需等技術面<span class="hl">出現翻多訊號</span>才進場，勿盲目買入</dd></div>
+      <div class="lv"><dt>警戒時間表</dt><dd>Q3前安全；<span class="stop">Q4後</span>市場開始反映2027成長放緩，需重新評估</dd></div>
+      <div class="lv"><dt>8–9月歷史弱勢</dt><dd>9月<span class="stop">平均負報酬</span>，不論任何期間均如此，這才是真正需要警戒的窗口</dd></div>
+    </dl>
+    <div class="takeaway">
+      <div class="tag bull">偏多待訊號</div>
+      <div class="note">總體面看多，短線靠技術面確認；長線空頭信號要到Q4後才有機會出現。</div>
+    </div>
+    <div class="idiom"><span class="q">等技術面的回檔修正告一段落，可以重新翻多，短線跟長線的趨勢就能再度走在一起。</span></div>
+  </article>
+</main>
+
+<footer class="foot">
+  <div>
+    <h3>怎麼看</h3>
+    <p>七月反彈是機率優勢，不是保證。核心邏輯三位一體：Nasdaq 100估值合理（24倍在歷史正常帶內）、EPS今年爆發+43%、AI周期尚未見頂——三者合一撐住中線多頭格局。避險基金單週史上最大賣超是情緒波動，非系統性翻空訊號；除非連續多週持續撤退，否則不必恐慌。短線仍需等技術面翻多確認後再行動，8–9月才是歷史真正弱勢窗口，屆時再重新檢視態度。</p>
+  </div>
+  <div>
+    <h3>風險聲明 · 防詐提醒</h3>
+    <p class="disclaimer">本內容依據節目逐字稿整理，僅供參考，不構成任何投資建議；投資人應獨立判斷並審慎評估風險，盈虧自負。老王官方頻道有藍勾勾認證，不會主動打電話或私訊要求加群、推薦個股或出資操作；任何主動聯絡請求一律視為詐騙，請提高警覺。</p>
+  </div>
+</footer></div><script>
+  const cards=document.querySelectorAll(".card");
+  if(window.IntersectionObserver){
+    const io=new IntersectionObserver((es)=>{
+      es.forEach((e)=>{ if(e.isIntersecting){
+        setTimeout(()=>e.target.classList.add("in"), (Array.from(cards).indexOf(e.target)%3)*70);
+        io.unobserve(e.target);
+      }});
+    },{threshold:.12});
+    cards.forEach(c=>io.observe(c));
+  }else{ cards.forEach(c=>c.classList.add("in")); }
+</script></body></html>
