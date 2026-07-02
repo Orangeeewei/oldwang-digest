@@ -1,0 +1,368 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>今晚非農大爆雷？2026/07/02【老王不只三分鐘】 · 戰情卡</title><style>
+  /* =========================================================
+     大盤假突破戰情卡 — 沿用「解盤 / 總經戰情卡」夜間戰情室
+     台股慣例：紅漲綠跌；金色 = 老王招牌術語 / 訊號
+     來源：6/26（五）台股殺千點當集逐字稿（三巫日結算 + 假突破）
+     ========================================================= */
+  :root{
+    --ink:#14110E; --surface:#1E1A15; --surface-2:#26211B;
+    --line:#332C24; --line-soft:#2A241E;
+    --up:#FF5247; --up-dim:#5A2420;
+    --down:#37C28C; --down-dim:#1E4338;
+    --info:#6FA8FF;
+    --gold:#E0A93C; --gold-dim:#4A3A1C;
+    --txt:#F3EEE4; --muted:#9C9082; --faint:#6B6155;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --cjk:"PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:
+      radial-gradient(1200px 600px at 78% -8%, #1f2218 0%, transparent 60%),
+      radial-gradient(900px 500px at 4% 4%, #1a1712 0%, transparent 55%),
+      var(--ink);
+    color:var(--txt); font-family:var(--cjk); line-height:1.5;
+    padding:clamp(18px,4vw,52px) clamp(14px,4vw,40px) 64px; min-height:100vh;
+  }
+  .wrap{max-width:1240px;margin:0 auto}
+
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.32em;
+    text-transform:uppercase;color:var(--gold);font-weight:600}
+  .masthead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;
+    gap:18px;padding-bottom:20px;border-bottom:1px solid var(--line);margin-bottom:8px}
+  h1{font-size:clamp(30px,5.4vw,52px);font-weight:800;letter-spacing:-.01em;
+    line-height:1.02;margin-top:10px}
+  h1 .thin{font-weight:300;color:var(--muted)}
+  .sub{color:var(--muted);font-size:14.5px;max-width:54ch;margin-top:10px}
+  .sub b{color:var(--txt);font-weight:600}
+  .sub .dn{color:var(--down);font-weight:600}
+  .stamp{text-align:right;font-family:var(--mono);font-size:12.5px;color:var(--muted);
+    line-height:1.7;white-space:nowrap}
+  .stamp .big{color:var(--down);font-size:15px;font-weight:600;letter-spacing:.04em}
+
+  .metrics{display:grid;gap:12px;margin:22px 0 6px;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+  .metric{border:1px solid var(--line);border-radius:13px;padding:14px 16px;
+    background:linear-gradient(180deg,var(--surface) 0%, #18140f 100%)}
+  .metric .lab{font-size:12px;color:var(--muted);letter-spacing:.04em}
+  .metric .val{font-family:var(--mono);font-size:24px;font-weight:700;margin-top:6px;line-height:1}
+  .metric .val.d{color:var(--down)} .metric .val.g{color:var(--gold)} .metric .val.i{color:var(--info)}
+  .metric .hint{font-size:11px;color:var(--faint);margin-top:5px;letter-spacing:.03em}
+
+  /* timeline hero — 三幕 */
+  .acts{margin:24px 0 8px;padding:18px 20px;border:1px solid var(--down-dim);border-radius:14px;
+    background:linear-gradient(90deg,rgba(55,194,140,.07),transparent 80%)}
+  .acts h2{font-size:12px;letter-spacing:.22em;color:var(--gold);font-weight:700;
+    text-transform:uppercase;margin-bottom:14px;font-family:var(--mono)}
+  .acts .row{display:grid;gap:12px;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch}
+  .act{border:1px solid var(--line);border-radius:11px;padding:13px 14px;background:var(--surface-2)}
+  .act .d{font-family:var(--mono);font-size:11px;letter-spacing:.06em;color:var(--faint)}
+  .act .t{font-size:16px;font-weight:800;margin:5px 0 4px}
+  .act .t.u{color:var(--up)} .act .t.warn{color:var(--gold)} .act .t.dn{color:var(--down)}
+  .act p{font-size:12px;color:var(--muted);line-height:1.55}
+  .acts .arr{align-self:center;color:var(--gold);font-family:var(--mono);font-size:20px;font-weight:700}
+  @media (max-width:820px){
+    .acts .row{grid-template-columns:1fr}.acts .arr{transform:rotate(90deg);justify-self:center}
+  }
+
+  .grid{display:grid;gap:18px;margin-top:26px;
+    grid-template-columns:repeat(auto-fill,minmax(360px,1fr))}
+  .card{background:linear-gradient(180deg,var(--surface) 0%, #1A150F 100%);
+    border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    display:flex;flex-direction:column;opacity:0;transform:translateY(14px);
+    transition:transform .25s ease, border-color .25s ease, box-shadow .25s ease}
+  .card.in{opacity:1;transform:none}
+  .card:hover{transform:translateY(-4px);border-color:var(--gold-dim);
+    box-shadow:0 18px 40px -22px rgba(0,0,0,.8)}
+
+  .c-head{padding:18px 18px 10px}
+  .fig{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--gold);
+    border:1px solid var(--gold-dim);border-radius:5px;padding:2px 8px;background:rgba(224,169,60,.06)}
+  .m-title{font-size:21px;font-weight:800;letter-spacing:.01em;margin:11px 0 4px;line-height:1.18}
+  .src{font-size:11.5px;color:var(--faint);letter-spacing:.03em}
+
+  .mini{padding:4px 16px 0}
+  .mini svg{display:block;width:100%;height:96px;overflow:visible}
+  .mini-cap{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:10.5px;color:var(--faint);
+    padding:6px 2px 0;letter-spacing:.03em}
+  .mini-cap .k{display:inline-flex;align-items:center;gap:5px}
+  .mini-cap .dot{width:9px;height:3px;border-radius:2px;display:inline-block}
+
+  .levels{padding:14px 18px 4px;display:grid;gap:9px}
+  .lv{display:grid;grid-template-columns:48px 1fr;gap:10px;align-items:baseline}
+  .lv dt{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--faint);
+    border-right:1px solid var(--line);padding-right:8px;text-align:right}
+  .lv dd{font-size:13.5px;color:var(--txt)}
+  .lv dd .hl{color:var(--up);font-weight:600}
+  .lv dd .stop{color:var(--down);font-weight:600}
+  .lv dd .gd{color:var(--gold);font-weight:600}
+
+  .takeaway{margin:12px 18px 0;padding:11px 13px;border-radius:11px;background:var(--surface-2);
+    border:1px solid var(--line-soft)}
+  .takeaway .tag{font-size:14.5px;font-weight:800;letter-spacing:.02em}
+  .takeaway .tag.bull{color:var(--up)} .takeaway .tag.bear{color:var(--down)} .takeaway .tag.warn{color:var(--gold)}
+  .takeaway .note{font-size:12px;color:var(--muted);margin-top:3px;line-height:1.55}
+
+  .idiom{margin:14px 18px 18px;padding:12px 14px;border-left:3px solid var(--gold);
+    background:linear-gradient(90deg,rgba(224,169,60,.10),transparent 90%);border-radius:0 10px 10px 0}
+  .idiom .q{font-size:14px;color:var(--gold);font-weight:600}
+  .idiom .q::before{content:"「"} .idiom .q::after{content:"」"}
+
+  .foot{margin-top:34px;padding-top:22px;border-top:1px solid var(--line);
+    display:grid;gap:18px;grid-template-columns:1.4fr 1fr}
+  .foot h3{font-size:12px;letter-spacing:.2em;color:var(--gold);font-family:var(--mono);
+    text-transform:uppercase;margin-bottom:10px}
+  .foot p{font-size:13px;color:var(--muted);max-width:64ch}
+  .foot code{font-family:var(--mono);font-size:12px;color:var(--txt);
+    background:var(--surface-2);padding:1px 6px;border-radius:4px;border:1px solid var(--line)}
+  .disclaimer{font-size:12px;color:var(--faint);line-height:1.7}
+  .disclaimer b{color:var(--muted)}
+
+  @media (max-width:720px){.foot{grid-template-columns:1fr}.stamp{text-align:left}}
+  @media (prefers-reduced-motion:reduce){.card{opacity:1;transform:none;transition:none}.card:hover{transform:none}}
+</style></head><body><div class="wrap"><header class="masthead">
+  <div>
+    <span class="eyebrow">2026/07/02 · 宏觀經濟</span>
+    <h1>今晚非農大爆雷？<span class="thin"> · 就業市場真相解碼</span></h1>
+    <p class="sub">美國六月非農就業報告即將公布，市場屏息等待。老王帶你看懂數字甜蜜點與地雷區，拆解 JOLTS 官方數據的樣本陷阱，並揭示 AI 時代大學應屆生就業「倒掛」的深層警示。</p>
+  </div>
+  <div class="stamp">
+    <div class="big">降息懸念</div>
+    <div>聯準會路徑待非農揭曉</div>
+  </div>
+</header>
+
+<section class="metrics">
+  <div class="metric">
+    <div class="lab">非農就業預期（市場）</div>
+    <div class="val i">+11.4萬</div>
+    <div class="hint">六月新增，較五月17.2萬明顯降溫</div>
+  </div>
+  <div class="metric">
+    <div class="lab">非農就業預期（高盛）</div>
+    <div class="val d">+13萬</div>
+    <div class="hint">略高於市場共識，稍微偏強</div>
+  </div>
+  <div class="metric">
+    <div class="lab">失業率市場預期</div>
+    <div class="val i">4.3%</div>
+    <div class="hint">芝加哥 Fed 即時預測與市場一致</div>
+  </div>
+  <div class="metric">
+    <div class="lab">大學應屆生失業率（Q1）</div>
+    <div class="val d">5.6%</div>
+    <div class="hint">史上首度高於整體勞工水準</div>
+  </div>
+  <div class="metric">
+    <div class="lab">整體勞工失業率</div>
+    <div class="val g">4.2%</div>
+    <div class="hint">與應屆生差距高達 1.4 個百分點</div>
+  </div>
+  <div class="metric">
+    <div class="lab">芝加哥 Fed 招聘率</div>
+    <div class="val d">44.45</div>
+    <div class="hint">回落至 2021 年以來低點</div>
+  </div>
+</section>
+
+<section class="acts">
+  <h2>本集三幕</h2>
+  <div class="row">
+    <div class="act">
+      <div class="d">第一幕</div>
+      <div class="t u">非農數字：甜蜜點與地雷區</div>
+      <p>市場預期 +11.4 萬，高盛估 +13 萬，老王認為稍高不是問題。真正的警戒線是接近五月的 17.2 萬水準——那將引發聯準會升息討論。失業率方面，4.3–4.4% 最理想，過高市場驚嚇，過低 Fed 更無降息理由。</p>
+    </div>
+    <div class="arr">→</div>
+    <div class="act">
+      <div class="d">第二幕</div>
+      <div class="t u">JOLTS 樣本陷阱：官方 vs 民間</div>
+      <p>JOLTS 職缺三個月均線勾底，但只涵蓋 25% 企業、每月固定回報者不到 30%。民間大數據（Indeed、Linkup）與芝加哥 Fed 招聘率（44.45，2021 低點）卻顯示職缺持續下滑，官民數據出現明顯多空分歧。</p>
+    </div>
+    <div class="arr">→</div>
+    <div class="act">
+      <div class="d">第三幕</div>
+      <div class="t u">大學生就業倒掛：AI 的長尾衝擊</div>
+      <p>從 1990 年代到 2016 年，大學畢業生失業率長期低於整體勞工。2022 年 ChatGPT 問世後急速倒掛；Q1 應屆生失業率 5.6% 已高出整體 1.4 個百分點。初階白領職缺萎縮與學歷通膨，正合力摧毀「書中自有黃金屋」的時代邏輯。</p>
+      </div>
+  </div>
+</section>
+
+<main class="grid">
+
+  <article class="card">
+    <div class="c-head">
+      <span class="fig">非農前瞻</span>
+      <div class="m-title">六月非農就業：數字甜蜜點在哪？</div>
+      <span class="src">老王解讀 · 市場共識 · 高盛預測</span>
+    </div>
+    <dl class="levels">
+      <div class="lv"><dt>市場預期</dt><dd>新增 <span class="hl">+11.4 萬</span>，較五月 17.2 萬明顯降溫</dd></div>
+      <div class="lv"><dt>高盛預期</dt><dd><span class="hl">+13 萬</span>，稍高於市場共識，<span class="gd">老王：稍高我倒覺得沒問題</span></dd></div>
+      <div class="lv"><dt>危險訊號</dt><dd>若靠近 <span class="stop">17 萬</span>（五月水準），聯準會升息討論恐重燃</dd></div>
+      <div class="lv"><dt>安全區間</dt><dd><span class="hl">11–15 萬</span>左右，降息預期可維持</dd></div>
+    </dl>
+    <div class="takeaway">
+      <div class="tag warn">靜待數據</div>
+      <div class="note">超預期的幅度才是關鍵，小幅超標無礙，大幅逼近五月水準才真正衝擊降息時間表。</div>
+    </div>
+    <div class="idiom"><span class="q">稍微高出市場預期，我倒是覺得還沒問題。</span></div>
+  </article>
+
+  <article class="card">
+    <div class="c-head">
+      <span class="fig">失業率</span>
+      <div class="m-title">失業率甜蜜點：不是越低越好</div>
+      <span class="src">老王解讀 · 聯準會視角</span>
+    </div>
+    <dl class="levels">
+      <div class="lv"><dt>市場預期</dt><dd><span class="hl">4.3%</span>，芝加哥 Fed 即時估算一致</dd></div>
+      <div class="lv"><dt>稍高 OK</dt><dd><span class="hl">4.4%</span>：就業微冷，聯準會有降息理由</dd></div>
+      <div class="lv"><dt>過高地雷</dt><dd><span class="stop">4.6% 以上</span>：市場「驚嚇」，企業經營出問題訊號</dd></div>
+      <div class="lv"><dt>過低地雷</dt><dd><span class="stop">4.0% 以下</span>：通膨高 + 失業低，Fed 反而可能討論升息</dd></div>
+    </dl>
+    <div class="takeaway">
+      <div class="tag warn">雙向風險</div>
+      <div class="note">4.3–4.4% 是最不令人緊張的甜蜜區間；過高過低都會讓市場不安。</div>
+    </div>
+    <div class="idiom"><span class="q">不是驚喜，是驚嚇。</span></div>
+  </article>
+
+  <article class="card">
+    <div class="c-head">
+      <span class="fig">數據解讀</span>
+      <div class="m-title">JOLTS 職缺報告：樣本數陷阱</div>
+      <span class="src">美國勞動局 JOLTS · 老王解析</span>
+    </div>
+    <dl class="levels">
+      <div class="lv"><dt>調查覆蓋率</dt><dd>僅 <span class="stop">25%</span> 美國企業參與勞動局統計</dd></div>
+      <div class="lv"><dt>每月固定回報</dt><dd>參與企業中僅約 <span class="stop">30%</span> 定期填報，樣本極小</dd></div>
+      <div class="lv"><dt>表面訊號</dt><dd>三個月均線 <span class="hl">勾底回升</span>，空缺／失業比重回 1 以上</dd></div>
+      <div class="lv"><dt>老王警示</dt><dd><span class="gd">樣本數太少，不能輕言勞動市場大復甦</span></dd></div>
+    </dl>
+    <div class="takeaway">
+      <div class="tag warn">樣本陷阱</div>
+      <div class="note">JOLTS 表面偏強，但覆蓋率不足；需搭配民間大數據才能還原就業全貌，聯準會也一定知道這件事。</div>
+    </div>
+    <div class="idiom"><span class="q">樣本數其實沒有很大，你要再多觀察一下。</span></div>
+  </article>
+
+  <article class="card">
+    <div class="c-head">
+      <span class="fig">民間數據</span>
+      <div class="m-title">民間大數據 vs 官方：誰更接近真相？</div>
+      <span class="src">Indeed · Linkup · 芝加哥 Fed</span>
+    </div>
+    <dl class="levels">
+      <div class="lv"><dt>民間職缺（Indeed／Linkup）</dt><dd><span class="stop">持續下滑</span>，與 JOLTS 出現明顯背離</dd></div>
+      <div class="lv"><dt>芝加哥 Fed 招聘率</dt><dd><span class="stop">44.45</span>，回落至 2021 年以來低點</dd></div>
+      <div class="lv"><dt>數據共識</dt><dd>民間 + 芝加哥 Fed 皆指向勞動市場 <span class="stop">降溫未止</span></dd></div>
+      <div class="lv"><dt>老王結論</dt><dd><span class="gd">民間數據、官方數據、聯邦儲備銀行同向才是確認訊號，現在沒有</span></dd></div>
+    </dl>
+    <div class="takeaway">
+      <div class="tag bear">數據分歧</div>
+      <div class="note">民間大數據指向勞動市場持續降溫；在多空分歧尚未收斂前，單一數據不足以定論。</div>
+    </div>
+    <div class="idiom"><span class="q">你絕對不可能因為現在的就業數據，就斷言聯準會不會再降息了。</span></div>
+  </article>
+
+  <article class="card">
+    <div class="c-head">
+      <span class="fig">降息路徑</span>
+      <div class="m-title">聯準會降息時間表：兩大攔路虎</div>
+      <span class="src">老王分析 · 聯準會視角</span>
+    </div>
+    <dl class="levels">
+      <div class="lv"><dt>攔路虎一：通膨</dt><dd>地緣衝突推升油價，通膨 <span class="stop">維持高位且持續上行</span>，傳導需時數月</dd></div>
+      <div class="lv"><dt>攔路虎二：就業</dt><dd>JOLTS 空缺回升，空缺／失業比 <span class="stop">&gt;1</span>，Fed 找不到充分降息理由</dd></div>
+      <div class="lv"><dt>最壞情境</dt><dd>非農大幅超預期 → <span class="stop">升息討論重燃</span></dd></div>
+      <div class="lv"><dt>老王心態</dt><dd><span class="gd">現在最好的結果是不升息，你已經阿彌陀佛了</span></dd></div>
+    </dl>
+    <div class="takeaway">
+      <div class="tag warn">降息延後</div>
+      <div class="note">通膨加就業雙重壓力下，聯準會難以給出明確降息指引；今日非農是近期最關鍵的利率路徑觀測點。</div>
+    </div>
+    <div class="idiom"><span class="q">他不要跟你喊升息，你已經阿彌陀佛了，是不是？</span></div>
+  </article>
+
+  <article class="card">
+    <div class="c-head">
+      <span class="fig">結構警示</span>
+      <div class="m-title">大學應屆生就業倒掛：學歷溢價消失</div>
+      <span class="src">J.P. Morgan 就業研究 · 老王解析</span>
+    </div>
+    <dl class="levels">
+      <div class="lv"><dt>歷史傳統（1990–2016）</dt><dd>大學畢業生失業率 <span class="hl">長期低於</span> 整體勞工，學歷定價高</dd></div>
+      <div class="lv"><dt>2016 年後</dt><dd>差距開始收斂，學歷優勢悄然縮小</dd></div>
+      <div class="lv"><dt>2022 年轉折</dt><dd>ChatGPT 問世後加速「<span class="stop">倒掛</span>」，應屆生優勢快速消失</dd></div>
+      <div class="lv"><dt>2026 Q1 現況</dt><dd>應屆生失業率 <span class="stop">5.6%</span> vs 整體勞工 <span class="hl">4.2%</span>，差距 1.4 個百分點</dd></div>
+      <div class="lv"><dt>深層原因</dt><dd>企業重視 <span class="gd">實戰經驗與特定技術</span>，純學歷定價大幅縮水</dd></div>
+    </dl>
+    <div class="takeaway">
+      <div class="tag bear">學歷貶值</div>
+      <div class="note">書中黃金屋的時代正式終結，無職場經驗的應屆生在 AI 普及後首當其衝，且這個差距只會越來越大。</div>
+    </div>
+    <div class="idiom"><span class="q">書中自有黃金屋？那是以前的事了。</span></div>
+  </article>
+
+  <article class="card">
+    <div class="c-head">
+      <span class="fig">AI衝擊</span>
+      <div class="m-title">AI 取代誰？初階認知工作首當其衝</div>
+      <span class="src">老王觀點 · AI 勞動市場趨勢</span>
+    </div>
+    <dl class="levels">
+      <div class="lv"><dt>最易被取代</dt><dd><span class="stop">初階白領</span>：資料整理、文件撰寫、簡單分析——無經驗應屆生的核心工作</dd></div>
+      <div class="lv"><dt>AI 尚難取代</dt><dd><span class="hl">職場歷練與正確判斷力</span>：老手的隱性知識與情境判斷</dd></div>
+      <div class="lv"><dt>雙重夾擊</dt><dd>初階白領職缺 <span class="stop">持續萎縮</span> + 學歷通膨 → 應屆生競爭力雙殺</dd></div>
+      <div class="lv"><dt>老王預言</dt><dd><span class="gd">AI 越普及，這種倒掛只會越來越明顯</span></dd></div>
+    </dl>
+    <div class="takeaway">
+      <div class="tag warn">技能轉型</div>
+      <div class="note">防 AI 護城河是職場實戰經驗與判斷力，而非學歷文憑；越早累積不可替代的技能，越早脫離危險區。</div>
+    </div>
+    <div class="idiom"><span class="q">你能做的事情，有很多 ChatGPT 可以取代你。</span></div>
+  </article>
+
+  <article class="card">
+    <div class="c-head">
+      <span class="fig">產業警示</span>
+      <div class="m-title">青年消費力衰退：快消餐飲股的隱憂</div>
+      <span class="src">老王投資警示</span>
+    </div>
+    <dl class="levels">
+      <div class="lv"><dt>邏輯鏈</dt><dd>應屆生失業率升高 → 無穩定收入 → <span class="stop">消費力下滑 + 信用擴張受阻</span></dd></div>
+      <div class="lv"><dt>受衝擊族群</dt><dd>以年輕客群為核心的 <span class="stop">快消品牌、平價餐飲</span></dd></div>
+      <div class="lv"><dt>投資操作</dt><dd><span class="gd">老王：這是要特別避開的族群</span></dd></div>
+    </dl>
+    <div class="takeaway">
+      <div class="tag bear">族群迴避</div>
+      <div class="note">青年失業率走高是慢性毒藥，靠年輕人撐場的快消、餐飲股應列入觀察名單，適時迴避。</div>
+    </div>
+    <div class="idiom"><span class="q">你沒有薪水，怎麼去擴張信用、怎麼去消費？</span></div>
+  </article>
+
+</main>
+
+<footer class="foot">
+  <div>
+    <h3>怎麼看</h3>
+    <p>今日非農就業數字是近期最關鍵的宏觀事件。市場預期 +11.4 萬、高盛估 +13 萬，老王認為小幅超標尚可接受，真正的警戒線是靠近五月的 17.2 萬水準。失業率方面，4.3–4.4% 是甜蜜區，過高過低都會衝擊市場。解讀 JOLTS 職缺數據時，需留意其僅涵蓋 25% 企業、每月固定回報者不到 30% 的樣本限制；民間大數據（Indeed、Linkup）與芝加哥 Fed 招聘率（44.45，2021 年低點）皆指向勞動市場仍在降溫，多空訊號尚未收斂，不宜輕易下定論。中長期最值得警惕的是大學應屆生失業率（5.6%）首度超越整體勞工（4.2%）的結構性倒掛——AI 加速替代初階認知工作，青年消費力衰退將對快消、餐飲等以年輕客群為核心的產業帶來長尾影響，投資時應留意迴避。</p>
+  </div>
+  <div>
+    <h3>風險聲明 · 防詐提醒</h3>
+    <p class="disclaimer">本卡片內容依據老王節目逐字稿整理，純屬資訊分享，不構成任何投資建議或個股買賣推薦。投資人應自行評估風險並諮詢專業人士後再做決策。老王官方頻道有藍色勾勾認證，絕對不會主動透過電話或私訊聯繫粉絲，任何以老王名義主動聯絡者一律是詐騙，請立即封鎖並向平台檢舉。</p>
+  </div>
+</footer></div><script>
+  const cards=document.querySelectorAll(".card");
+  if(window.IntersectionObserver){
+    const io=new IntersectionObserver((es)=>{
+      es.forEach((e)=>{ if(e.isIntersecting){
+        setTimeout(()=>e.target.classList.add("in"), (Array.from(cards).indexOf(e.target)%3)*70);
+        io.unobserve(e.target);
+      }});
+    },{threshold:.12});
+    cards.forEach(c=>io.observe(c));
+  }else{ cards.forEach(c=>c.classList.add("in")); }
+</script></body></html>
